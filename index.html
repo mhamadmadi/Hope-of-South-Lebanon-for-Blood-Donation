@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hope of South Lebanon - A humanitarian blood donation initiative connecting donors with those in need across Lebanon. Register as a donor or find blood donors near you.">
+    <meta name="keywords" content="blood donation, Lebanon, South Lebanon, donate blood, blood donors, humanitarian, emergency blood, تبرع بالدم, لبنان">
+    <meta name="author" content="Mohamad Madi">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Hope of South Lebanon - Blood Donation">
+    <meta property="og:description" content="A humanitarian initiative connecting blood donors with those in need across Lebanon.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://hope-south-lebanon.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta name="google-site-verification" content="w0b4ZhNQXfh-Kv3u_8_Ho9l53h-XwUg7pX_6BHIVIlM" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <title>Hope of South Lebanon for Blood Donation</title>
+</head>
+<script type="module" src="script.js"></script>
+<script type="module" src="firebase.js"></script>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav">
+        <div class="title">
+            <i class="bi bi-heart-pulse-fill"></i> <a href="#home">Hope of South Lebanon</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" title="Hope of South Lebanon">Home</a></li>
+            <li><a href="#information" title="Blood Donation Information">Informations</a></li>
+            <li><a href="#compatibility">Compatibility</a></li>
+            <li><a href="#about">About South Lebanon</a></li>
+            <li><a href="#picture">South Lebanon pictures</a></li>
+        </ul>
+        <button class="hamburger"><i class="bi bi-list"></i></button>
+    </nav>
+    <!-- End Navigation Bar -->
+
+    <!-- Hero Section -->
+    <section class="hero_section" id="home">
+        <div class="hero_container">
+            <h2 class="hero_title">Hope South Lebanon - <strong>For Blood Donation</strong></h2>
+            <p class="hero_subtitle">A drop of your blood, a drop of hope for someone else. Help save a life and be part of the Beirut <br>Municipality's humanitarian blood donation initiative.</p>
+            <p class="hero_content">From South Lebanon to all of Lebanon</p>
+        </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <!-- Information Section -->
+     <section class="information_section" id="information">
+        <div class="information_title">
+            <h2>Informations about blood donation</h2>
+        </div>
+        <div class="information_container">
+            <h2>The importance of blood donation</h2>
+            <p>Donating blood is a noble humanitarian act that helps save the lives of many people suffering from medical emergencies. Each blood donation can save up to three lives, as the blood is separated into its main components: red blood cells, platelets, and plasma.</p>
+            <p>Adults need to donate blood at least once every three months. The body needs 24 to 48 hours to replace lost fluids and about two weeks to replace red blood cells. Donating blood does not harm the donor; in fact, it stimulates the bone marrow to produce new blood cells.</p>
+            <p>There is a constant need for blood donations in hospitals to treat emergencies, surgeries, and patients with cancer and chronic diseases. Certain rare blood types are particularly in demand.</p>
+            <p>The conditions for donating blood are: the donor must be 18-65 years old, weigh over 50 kilograms, be in good health, and not have taken any medications or undergone recent surgeries.</p>
+        </div>
+     </section>
+    <!-- End Information Section -->
+
+    <!-- Compatibility Section -->
+     <section class="compatibility_section" id="compatibility">
+        <div class= "compatibility_title">
+            <h2>Blood Compatibility</h2>
+            <p>Who can you donate to?</p>
+        </div>
+        <div class="compatibility_container">
+            <p>Select your blood type to see who you can save and who can save you</p>
+            <div class="compatibility_selection">
+                <button type="button">A+</button>
+                <button type="button">A-</button>
+                <button type="button">B+</button>
+                <button type="button">B-</button>
+                <button type="button">AB+</button>
+                <button type="button">AB-</button>
+                <button type="button">O+</button>
+                <button type="button">O-</button>
+            </div>
+            <div class="compatibility_result">
+                <div class="result_box">
+                <h4>Can donate to</h4>
+                <div id="donate_result"></div>
+            </div>
+            <div class="result_box">
+                <h4>Can receive from</h4>
+                <div id="receive_result"></div>
+            </div>
+        </div>
+        </div>
+     </section>
+    <!-- End Compatibility Section -->
+
+
+
+    <!-- Registration + Search Section -->
+     <section class="register_section">
+        <div class="register_title">
+            <h2>Blood donor or blood seeker?</h2>
+            <p class="subtitle">Use the templates below as needed.</p>
+        </div>
+        <div class="form_container">
+            <div class="register_form">
+                <h3>🩸 Register a new donor</h3>
+                <form id="register_form">
+                    <div class="input_form">
+                        <label for="name">Full Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="input_form">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" placeholder="+961 XXX XXX">
+                    </div>
+
+                    <div class="input_form">
+                        <label for="region">Region / Governorate</label>
+                        <select name="region" id="region">
+                            <option value="" selected hidden>Choose the governorate</option>
+                            <option value="Beirut">Beirut</option>
+                            <option value="Mount Lebanon">Mount Lebanon</option>
+                            <option value="Bekaa">Bekaa</option>
+                            <option value="Baalbek-Hermel">Baalbek-Hermel</option>
+                            <option value="North">North</option>
+                            <option value="Akkar">Akkar</option>
+                            <option value="South">South</option>
+                            <option value="Nabatieh">Nabatieh</option>
+                        </select>
+                    </div>
+
+                    <div class="input_form">
+                        <label>Sex</label>
+                        <input type="radio" class="input_radio" name="gender" id="male" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" class="input_radio" name="gender" id="female" value="female">
+                        <label for="female">Female</label>
+                    </div>
+
+                    <div class="input_form">
+                        <label for="type">Blood Type</label>
+                        <select name="blood_type" id="blood_type">
+                            <option value="" selected hidden>Choose your blood type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    <div class="input_submit">
+                        <button type="submit" class="reg_btn">✅ Register Now</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="looking_form">
+                <h3>🔍 Looking for a donor</h3>
+                <form id="search_form">
+                    <div class="input_form">
+                        <label for="type">Required Blood Type</label>
+                        <select name="blood_type" id="search_blood_type">
+                            <option value="" selected hidden>Choose your blood type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="input_form">
+                        <label for="region">Governorate</label>
+                        <select name="region" id="search_region">
+                            <option value="" selected hidden>Choose the governorate</option>
+                            <option value="Beirut">Beirut</option>
+                            <option value="Mount Lebanon">Mount Lebanon</option>
+                            <option value="Bekaa">Bekaa</option>
+                            <option value="Baalbek-Hermel">Baalbek-Hermel</option>
+                            <option value="North">North</option>
+                            <option value="Akkar">Akkar</option>
+                            <option value="South">South</option>
+                            <option value="Nabatieh">Nabatieh</option>
+                        </select>
+                    </div>
+
+                    <div class="input_submit">
+                        <button type="submit" class="search_btn">🔍 Search</button>
+                    </div>
+                </form>
+                <div id="search_results"></div>
+            </div>
+        </div>
+        <div class="note">
+            <p><span>Note:</span> If there is any error in the information entered (such as name, phone number, region, or blood type), please contact the administrator to correct the data via the number: <strong>70248433</strong></p>
+        </div>
+    </section>
+    <!-- End Registration + Search Section -->
+
+     <!-- About Section -->
+      <section class="about_section" id="about">
+        <div class="about_title">
+            <h2>About South Lebanon</h2>
+            <p class="subtitle">Discover our beautiful town</p>
+        </div>
+        <div class="container_card">
+            <div class="geographic_card">
+                <h2 class="title"><i class="bi bi-geo-alt-fill"></i> Geographic and demographic information</h2>
+                <div class="info_card">
+                    <div class="info_item">
+                        <i class="ti ti-mountain"></i>
+                        <p class="title">0 – 1,000 meters</p>
+                        <p>altitude above sea level</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="bi bi-columns-gap"></i>
+                        <p class="title">92,960 ha</p>
+                        <p>town area</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="ti ti-school"></i>
+                        <p class="title">+93%</p>
+                        <p>literacy rate</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="ti ti-users"></i>
+                        <p class="title">590,078</p>
+                        <p>population</p>
+                    </div>
+                </div>
+            </div>
+            <div class="community_card">
+                <h2 class="title"><i class="ti ti-building-community"></i> South Lebanon - The Heart of the Community</h2>
+                <p>South Lebanon Governorate is a land of timeless beauty and deep-rooted heritage, stretching from the Mediterranean coast to the rolling hills of the interior. Home to historic cities like Sidon and Tyre, it blends a rich civilizational past with the warmth of a living, breathing community.</p>
+                <p>The people of South Lebanon are known for their resilience, generosity, and strong bonds of solidarity. Across its villages and cities, a spirit of togetherness defines daily life — making the governorate not just a place, but a community in the truest sense.</p>
+                <p>The "Hope of South Lebanon" blood donation initiative is one of many humanitarian efforts that reflect the values of this region — a community that stands together, supports one another, and works tirelessly to build a better future for all its people.</p>
+            </div>
+        </div>
+      </section>
+     <!-- End About Section -->
+
+     <!-- Image Section -->
+      <section class="image_section" id="picture">
+        <div class="image_title">
+            <h2>Photo Gallery</h2>
+            <p>Glimpses of South Lebanon beauty</p>
+        </div>
+        <div class="picture_container">
+            <img src= "images/image 1.jpg.jpeg" alt="image 1">
+            <img src="images/image 2.jpg.jpeg" alt="image 2">
+            <img src="images/image 3.jpeg" alt="image 3">
+            <img src="images/image 4.jpeg" alt="image 4">
+            <img src="images/image 5.jpg.jpeg" alt="image 5">
+            <img src="images/image 10.jpg.jpeg" alt="image 6">
+            <img src="images/image 7.jpg.jpeg" alt="image 7">
+            <img src="images/image 8.jpeg" alt="image 8">
+            <img src="images/image 9.jpeg" alt="image 9">
+
+        </div>
+      </section>
+     <!-- End Picture Section -->
+
+     <!-- Urgency Section -->
+      <section class="urgency_section">
+        <div class="urgency_title">
+            <h2>🚨 Urgent blood request</h2>
+            <p>In case of emergency? Submit your request and we will contact matching donors immediately.</p>
+        </div>
+        <div class="urgency_form">
+            <form id="urgency_form">
+                <div class="form_group">
+                    <label for="urgency_name">Patient Name</label>
+                    <input type="text" name="name" id="urgency_name" placeholder="Patient Name">
+                </div>
+                <div class="form_group">
+                    <label for="urgency_phone">Phone Number</label>
+                    <input type="tel" name="phone" id="urgency_phone" placeholder="+961 XXX XXX">
+                </div>
+                <div class="form_group">
+                    <label for="hospital">Hospital Name</label>
+                    <input type="text" name="hospital" id="hospital" placeholder="Hospital Name">
+                </div>
+                <div class="form_group">
+                    <label for="urgency_blood_type">Blood Type</label>
+                    <select name="blood_type" id="urgency_blood_type">
+                        <option value="" selected hidden>Choose Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="form_group">
+                    <label for="note">Additional Notes</label>
+                    <textarea name="note" id="note" rows="2" placeholder="Any additional information"></textarea>                
+                </div>
+                <div class="form_submit">
+                    <button type="submit">Send Urgent Request 🚨</button>
+                </div>
+            </form>
+        </div>
+      </section>
+     <!-- End Urgency Section -->
+
+     <!-- Footer -->
+      <footer>
+        <div class="footer">
+            <p>All rights reserved © 2026 - Hope of South Lebanon</p>
+            <p>Designed & Developed By Mohamad Madi</p>
+        </div>
+      </footer>
+      <!-- End Footer -->
+</body>
+</html>
