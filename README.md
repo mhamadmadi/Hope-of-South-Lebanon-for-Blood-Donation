@@ -12,7 +12,7 @@ A humanitarian initiative connecting blood donors with those in need across Leba
 # Features
 
 - Register as a blood donor
-- Search for fonors by blood type and region
+- Search for donors by blood type and region
 - Blood type compatibility checker
 - Urgent blood request form
 - Fully responsive design
@@ -20,7 +20,6 @@ A humanitarian initiative connecting blood donors with those in need across Leba
 # Note
 
 This project uses Firebase Firestore
-The firebase.js config file is not included for security reasons
 
 # Developer
 
